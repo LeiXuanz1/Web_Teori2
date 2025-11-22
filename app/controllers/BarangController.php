@@ -32,11 +32,31 @@ class BarangController extends Controller
     // INPUT DATA
     public function store()
     {
+<<<<<<< HEAD
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $_POST['deskripsi'],
             'harga'    => $_POST['harga'],
             'stok'     => $_POST['stok']
+=======
+        // Validasi harga
+        $harga = $_POST['harga'];
+        if (!is_numeric($harga) || $harga < 0) {
+            die("Error: Harga harus berupa angka positif.");
+        }
+
+        // Validasi stok
+        $stok = $_POST['stok'];
+        if (!is_numeric($stok) || $stok < 0) {
+            die("Error: Stok harus berupa angka positif.");
+        }
+
+        $data = [
+            'nama_barang'     => $_POST['nama_barang'],
+            'deskripsi' => $_POST['deskripsi'],
+            'harga'    => (int)$harga,
+            'stok'     => (int)$stok
+>>>>>>> 994a0ee (First commit)
         ];
 
         $file = $_FILES['thumbnail'];
@@ -62,11 +82,31 @@ class BarangController extends Controller
     // UPDATE DATA
     public function update($id)
     {
+<<<<<<< HEAD
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $_POST['deskripsi'],
             'harga'    => $_POST['harga'],
             'stok'     => $_POST['stok']
+=======
+        // Validasi harga
+        $harga = $_POST['harga'];
+        if (!is_numeric($harga) || $harga < 0) {
+            die("Error: Harga harus berupa angka positif.");
+        }
+
+        // Validasi stok
+        $stok = $_POST['stok'];
+        if (!is_numeric($stok) || $stok < 0) {
+            die("Error: Stok harus berupa angka positif.");
+        }
+
+        $data = [
+            'nama_barang'     => $_POST['nama_barang'],
+            'deskripsi' => $_POST['deskripsi'],
+            'harga'    => (int)$harga,
+            'stok'     => (int)$stok
+>>>>>>> 994a0ee (First commit)
         ];
 
         $file = $_FILES['thumbnail'];

@@ -6,7 +6,12 @@ define("BASE_URL", "http://localhost/sim-barang/public");
 
 date_default_timezone_set('Asia/Jakarta');
 
+<<<<<<< HEAD
 define("UPLOAD_DIR", __DIR__ . "/../../public/uploads/");  
+=======
+// Get the correct upload directory path
+define("UPLOAD_DIR", dirname(dirname(dirname(__FILE__))) . "/public/uploads/");  
+>>>>>>> 994a0ee (First commit)
 
 define("UPLOAD_URL", BASE_URL . "/uploads/");
 
