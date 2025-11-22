@@ -34,12 +34,12 @@ class BarangController extends Controller
     {
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
-            'deskripsi' => $_POST['deskripsi'] ?? null,
+            'deskripsi' => $_POST['deskripsi'],
             'harga'    => $_POST['harga'],
             'stok'     => $_POST['stok']
         ];
 
-        $file = $_FILES['thumbnail'] ?? null;
+        $file = $_FILES['thumbnail'];
 
         $this->barangModel->insert($data, $file);
 
@@ -64,12 +64,12 @@ class BarangController extends Controller
     {
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
-            'deskripsi' => $_POST['deskripsi'] ?? null,
+            'deskripsi' => $_POST['deskripsi'],
             'harga'    => $_POST['harga'],
             'stok'     => $_POST['stok']
         ];
 
-        $file = $_FILES['thumbnail'] ?? null;
+        $file = $_FILES['thumbnail'];
 
         $this->barangModel->update($id, $data, $file);
 
