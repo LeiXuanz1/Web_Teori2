@@ -1,14 +1,25 @@
-<div class="container mt-4">
+<div class="container mt-4 page-barang">
     <h2>Daftar Barang</h2>
-
-    <a href="<?= BASE_URL ?>/barang/create" class="btn btn-primary mb-3">Tambah Barang</a>
 
     <form action="" method="GET" class="mb-3">
         <input type="hidden" name="url" value="barang">
-        <input type="text" name="search" placeholder="Cari barang" class="form-control" style="max-width: 300px;">
+        <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+            <input type="text" name="search" placeholder="Cari barang" class="form-control" style="max-width: 300px;">
+            <label style="white-space:nowrap;">Baris per halaman:
+                <select id="rowsPerPage" class="form-control" style="width:120px;display:inline-block;margin-left:8px;">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+            </label>
+            <div class="pagination-controls" style="margin-left:auto;">
+                <button id="prevPage" class="btn btn-secondary btn-sm" disabled>Previous</button>
+                <span id="pageIndicator" style="padding:0 8px;min-width:36px;text-align:center;">1</span>
+                <button id="nextPage" class="btn btn-secondary btn-sm">Next</button>
+            </div>
+        </div>
     </form>
 
-    <table class="table table-bordered table-striped">
+    <table id="barangTable" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Thumbnail</th>
@@ -21,7 +32,7 @@
         </thead>
         <tbody>
             <?php foreach ($barang as $b): ?>
-            <tr>
+            <tr class="data-row">
                 <td>
                     <?php if (!empty($b['thumbnail'])): ?>
                     <img src="<?= UPLOAD_URL . $b['thumbnail']; ?>" width="70">
@@ -51,4 +62,11 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <!-- Tombol Tambah di bawah tabel -->
+    <div style="margin-top:1rem;">
+        <a href="<?= BASE_URL ?>/barang/create" class="btn btn-primary">Tambah Barang</a>
+    </div>
+
+    <script src="<?= BASE_URL ?>/assets/barang-table-pager.js"></script>
 </div>

@@ -24,8 +24,8 @@
         </div>
 
         <div class="mb-3">
-            <label>Thumbnail (opsional)</label>
-            <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png">
+            <label>Thumbnail</label>
+            <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png" required>
             <small class="text-muted">* Format yang diterima: JPG, JPEG, PNG. Ukuran maksimal: 2 MB</small>
         </div>
 
