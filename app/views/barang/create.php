@@ -32,11 +32,16 @@
         </div>
 
         <div class="mb-3">
+<<<<<<< HEAD
             <label>Thumbnail (opsional)</label>
 <<<<<<< HEAD
             <input type="file" name="thumbnail" class="form-control">
 =======
             <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png">
+=======
+            <label>Thumbnail</label>
+            <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png" required>
+>>>>>>> 4ed81b4 (update: perbaikan upload, validasi stok & harga, UI home)
             <small class="text-muted">* Format yang diterima: JPG, JPEG, PNG. Ukuran maksimal: 2 MB</small>
 >>>>>>> 994a0ee (First commit)
         </div>

@@ -18,10 +18,15 @@
         <div class="mb-3">
             <label>Harga</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <input type="number" name="harga" class="form-control" value="<?= $barang['harga']; ?>" required>
 =======
             <input type="text" name="harga" class="form-control" placeholder="Masukkan harga" pattern="[0-9]+" title="Hanya boleh angka tanpa mines, koma, atau huruf" value="<?= $barang['harga']; ?>" required>
 >>>>>>> 994a0ee (First commit)
+=======
+            <!-- Accept integer or decimal with up to 2 decimals (e.g. 3000 or 3000.00) -->
+            <input type="text" name="harga" class="form-control" placeholder="Masukkan harga" pattern="[0-9]+(\.[0-9]{1,2})?" title="Hanya angka, boleh desimal dengan maksimal 2 tempat (contoh: 3000 atau 3000.00)" value="<?= $barang['harga']; ?>" required>
+>>>>>>> 4ed81b4 (update: perbaikan upload, validasi stok & harga, UI home)
         </div>
 
         <div class="mb-3">
@@ -36,23 +41,29 @@
         <div class="mb-3">
             <label>Thumbnail Saat Ini</label> <br>
             <?php if ($barang['thumbnail']): ?>
-            <img src="/uploads/<?= $barang['thumbnail']; ?>" width="100">
+            <img src="<?= UPLOAD_URL . $barang['thumbnail']; ?>" width="100" alt="Thumbnail saat ini">
+            <div class="mt-2"><small>Nama file: <?= htmlspecialchars($barang['thumbnail']); ?></small></div>
             <?php else: ?>
             <p class="text-muted">Belum ada gambar</p>
             <?php endif; ?>
         </div>
 
         <div class="mb-3">
+<<<<<<< HEAD
             <label>Ganti Thumbnail (opsional)</label>
 <<<<<<< HEAD
             <input type="file" name="thumbnail" class="form-control">
 =======
             <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png">
+=======
+            <label>Ganti Thumbnail</label>
+            <input type="file" name="thumbnail" class="form-control" accept=".jpg,.jpeg,.png" <?php if (empty($barang['thumbnail'])) echo 'required'; ?> >
+>>>>>>> 4ed81b4 (update: perbaikan upload, validasi stok & harga, UI home)
             <small class="text-muted">* Format yang diterima: JPG, JPEG, PNG. Ukuran maksimal: 2 MB</small>
 >>>>>>> 994a0ee (First commit)
         </div>
 
-        <button class="btn btn-primary">Update</button>
+    <button class="btn btn-success">Update</button>
         <a href="<?= BASE_URL ?>/barang" class="btn btn-secondary">Kembali</a>
 
     </form>
