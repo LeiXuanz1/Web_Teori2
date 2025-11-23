@@ -1,9 +1,11 @@
 <div class="container mt-4 page-barang">
     <h2>Daftar Barang</h2>
 
-    <form action="" method="GET" class="mb-3">
+    <form action="<?= BASE_URL ?>/barang" method="GET" class="mb-3">
         <input type="hidden" name="url" value="barang">
         <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+            <!-- Tombol tambah di kiri atas sebagai ikon + -->
+            <a href="<?= BASE_URL ?>/barang/create" class="btn btn-primary btn-sm" id="addBarangBtn" title="Tambah Barang"><i class="bi bi-plus-lg" aria-hidden="true"></i></a>
             <input type="text" name="search" placeholder="Cari barang" class="form-control" style="max-width: 300px;">
             <label style="white-space:nowrap;">Baris per halaman:
                 <select id="rowsPerPage" class="form-control" style="width:120px;display:inline-block;margin-left:8px;">
@@ -12,9 +14,9 @@
                 </select>
             </label>
             <div class="pagination-controls" style="margin-left:auto;">
-                <button id="prevPage" class="btn btn-secondary btn-sm" disabled>Previous</button>
+                <button type="button" id="prevPage" class="btn btn-secondary btn-sm" disabled>Previous</button>
                 <span id="pageIndicator" style="padding:0 8px;min-width:36px;text-align:center;">1</span>
-                <button id="nextPage" class="btn btn-secondary btn-sm">Next</button>
+                <button type="button" id="nextPage" class="btn btn-secondary btn-sm">Next</button>
             </div>
         </div>
     </form>
@@ -47,7 +49,7 @@
                 <td><?= htmlspecialchars($b['deskripsi']); ?></td>
 
                 <!-- HARGA -->
-                <td>Rp <?= number_format($b['harga']); ?></td>
+                <td>Rp <?= number_format($b['harga'], 0, '', '.'); ?></td>
 
                 <!-- STOK -->
                 <td><?= $b['stok']; ?></td>
@@ -62,11 +64,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-
-    <!-- Tombol Tambah di bawah tabel -->
-    <div style="margin-top:1rem;">
-        <a href="<?= BASE_URL ?>/barang/create" class="btn btn-primary">Tambah Barang</a>
-    </div>
-
     <script src="<?= BASE_URL ?>/assets/barang-table-pager.js"></script>
 </div>

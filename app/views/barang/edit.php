@@ -12,7 +12,7 @@
 
         <div class="mb-3">
             <label>Deskripsi</label>
-            <textarea name="deskripsi" class="form-control"><?= $barang['deskripsi']; ?></textarea>
+            <textarea name="deskripsi" class="form-control" required><?= $barang['deskripsi']; ?></textarea>
         </div>
 
         <div class="mb-3">
