@@ -51,10 +51,16 @@ class BarangController extends Controller
             die("Error: Stok harus berupa angka positif.");
         }
 
+        // Validasi deskripsi (wajib)
+        $deskripsi = isset($_POST['deskripsi']) ? trim($_POST['deskripsi']) : '';
+        if ($deskripsi === '') {
+            die("Error: Deskripsi wajib diisi.");
+        }
+
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
-            'deskripsi' => $_POST['deskripsi'],
-            'harga'    => (int)$harga,
+            'deskripsi' => $deskripsi,
+            'harga'    => (float)str_replace([',',' '], ['', ''], $harga),
             'stok'     => (int)$stok
 >>>>>>> 994a0ee (First commit)
         ];
@@ -106,10 +112,16 @@ class BarangController extends Controller
             die("Error: Stok harus berupa angka positif.");
         }
 
+        // Validasi deskripsi (wajib)
+        $deskripsi = isset($_POST['deskripsi']) ? trim($_POST['deskripsi']) : '';
+        if ($deskripsi === '') {
+            die("Error: Deskripsi wajib diisi.");
+        }
+
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
-            'deskripsi' => $_POST['deskripsi'],
-            'harga'    => (int)$harga,
+            'deskripsi' => $deskripsi,
+            'harga'    => (float)str_replace([',',' '], ['', ''], $harga),
             'stok'     => (int)$stok
 >>>>>>> 994a0ee (First commit)
         ];
