@@ -25,8 +25,12 @@
 >>>>>>> 994a0ee (First commit)
 =======
             <!-- Accept integer or decimal with up to 2 decimals (e.g. 3000 or 3000.00) -->
+<<<<<<< HEAD
             <input type="text" name="harga" class="form-control" placeholder="Masukkan harga" pattern="[0-9]+(\.[0-9]{1,2})?" title="Hanya angka, boleh desimal dengan maksimal 2 tempat (contoh: 3000 atau 3000.00)" value="<?= $barang['harga']; ?>" required>
 >>>>>>> 4ed81b4 (update: perbaikan upload, validasi stok & harga, UI home)
+=======
+            <input type="text" name="harga" class="form-control" placeholder="Masukkan harga" pattern="[0-9]+(\.[0-9]{1,2})?" title="Hanya angka dan tidak minus" value="<?= $barang['harga']; ?>" required>
+>>>>>>> 6b91432 (update: perbaikan kecil)
         </div>
 
         <div class="mb-3">
@@ -68,9 +72,15 @@
 
     </form>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </div>
 =======
 </div>
 
 <script src="<?= BASE_URL ?>/assets/form-input-filter.js"></script>
 >>>>>>> 994a0ee (First commit)
+=======
+    </div>
+
+    <script src="<?= BASE_URL ?>/assets/form-input-filter.js"></script>
+>>>>>>> 6b91432 (update: perbaikan kecil)

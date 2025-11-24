@@ -33,6 +33,7 @@ class BarangController extends Controller
     public function store()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $_POST['deskripsi'],
@@ -42,12 +43,29 @@ class BarangController extends Controller
         // Validasi harga
         $harga = $_POST['harga'];
         if (!is_numeric($harga) || $harga < 0) {
+=======
+        // Sanitasi & validasi harga
+        $rawHarga = isset($_POST['harga']) ? $_POST['harga'] : '';
+        // keep only digits and dot, collapse extra dots and limit decimals to 2
+        $hargaClean = preg_replace('/[^0-9.]/', '', $rawHarga);
+        $parts = explode('.', $hargaClean);
+        if (count($parts) > 1) {
+            $intPart = array_shift($parts);
+            $decPart = substr(implode('', $parts), 0, 2);
+            $hargaClean = $intPart . (strlen($decPart) ? '.' . $decPart : '');
+        }
+        if ($hargaClean === '') $hargaClean = '0';
+
+        if (!is_numeric($hargaClean) || $hargaClean < 0) {
+>>>>>>> 6b91432 (update: perbaikan kecil)
             die("Error: Harga harus berupa angka positif.");
         }
 
-        // Validasi stok
-        $stok = $_POST['stok'];
-        if (!is_numeric($stok) || $stok < 0) {
+        // Sanitasi & validasi stok
+        $rawStok = isset($_POST['stok']) ? $_POST['stok'] : '';
+        $stokClean = preg_replace('/[^0-9]/', '', $rawStok);
+        if ($stokClean === '') $stokClean = '0';
+        if (!is_numeric($stokClean) || $stokClean < 0) {
             die("Error: Stok harus berupa angka positif.");
         }
 
@@ -60,9 +78,15 @@ class BarangController extends Controller
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $deskripsi,
+<<<<<<< HEAD
             'harga'    => (float)str_replace([',',' '], ['', ''], $harga),
             'stok'     => (int)$stok
 >>>>>>> 994a0ee (First commit)
+=======
+            // pass sanitized harga as numeric string (DB DECIMAL will store correctly)
+            'harga'    => $hargaClean,
+            'stok'     => (int)$stokClean
+>>>>>>> 6b91432 (update: perbaikan kecil)
         ];
 
         // Periksa apakah thumbnail diupload (wajib)
@@ -94,6 +118,7 @@ class BarangController extends Controller
     public function update($id)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $_POST['deskripsi'],
@@ -103,12 +128,27 @@ class BarangController extends Controller
         // Validasi harga
         $harga = $_POST['harga'];
         if (!is_numeric($harga) || $harga < 0) {
+=======
+        // Sanitasi & validasi harga
+        $rawHarga = isset($_POST['harga']) ? $_POST['harga'] : '';
+        $hargaClean = preg_replace('/[^0-9.]/', '', $rawHarga);
+        $parts = explode('.', $hargaClean);
+        if (count($parts) > 1) {
+            $intPart = array_shift($parts);
+            $decPart = substr(implode('', $parts), 0, 2);
+            $hargaClean = $intPart . (strlen($decPart) ? '.' . $decPart : '');
+        }
+        if ($hargaClean === '') $hargaClean = '0';
+        if (!is_numeric($hargaClean) || $hargaClean < 0) {
+>>>>>>> 6b91432 (update: perbaikan kecil)
             die("Error: Harga harus berupa angka positif.");
         }
 
-        // Validasi stok
-        $stok = $_POST['stok'];
-        if (!is_numeric($stok) || $stok < 0) {
+        // Sanitasi & validasi stok
+        $rawStok = isset($_POST['stok']) ? $_POST['stok'] : '';
+        $stokClean = preg_replace('/[^0-9]/', '', $rawStok);
+        if ($stokClean === '') $stokClean = '0';
+        if (!is_numeric($stokClean) || $stokClean < 0) {
             die("Error: Stok harus berupa angka positif.");
         }
 
@@ -121,9 +161,14 @@ class BarangController extends Controller
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $deskripsi,
+<<<<<<< HEAD
             'harga'    => (float)str_replace([',',' '], ['', ''], $harga),
             'stok'     => (int)$stok
 >>>>>>> 994a0ee (First commit)
+=======
+            'harga'    => $hargaClean,
+            'stok'     => (int)$stokClean
+>>>>>>> 6b91432 (update: perbaikan kecil)
         ];
 
         $file = $_FILES['thumbnail'];
