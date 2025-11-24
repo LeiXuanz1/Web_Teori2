@@ -32,18 +32,6 @@ class BarangController extends Controller
     // INPUT DATA
     public function store()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $data = [
-            'nama_barang'     => $_POST['nama_barang'],
-            'deskripsi' => $_POST['deskripsi'],
-            'harga'    => $_POST['harga'],
-            'stok'     => $_POST['stok']
-=======
-        // Validasi harga
-        $harga = $_POST['harga'];
-        if (!is_numeric($harga) || $harga < 0) {
-=======
         // Sanitasi & validasi harga
         $rawHarga = isset($_POST['harga']) ? $_POST['harga'] : '';
         // keep only digits and dot, collapse extra dots and limit decimals to 2
@@ -57,7 +45,6 @@ class BarangController extends Controller
         if ($hargaClean === '') $hargaClean = '0';
 
         if (!is_numeric($hargaClean) || $hargaClean < 0) {
->>>>>>> 6b91432 (update: perbaikan kecil)
             die("Error: Harga harus berupa angka positif.");
         }
 
@@ -78,15 +65,9 @@ class BarangController extends Controller
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $deskripsi,
-<<<<<<< HEAD
-            'harga'    => (float)str_replace([',',' '], ['', ''], $harga),
-            'stok'     => (int)$stok
->>>>>>> 994a0ee (First commit)
-=======
             // pass sanitized harga as numeric string (DB DECIMAL will store correctly)
             'harga'    => $hargaClean,
             'stok'     => (int)$stokClean
->>>>>>> 6b91432 (update: perbaikan kecil)
         ];
 
         // Periksa apakah thumbnail diupload (wajib)
@@ -117,18 +98,6 @@ class BarangController extends Controller
     // UPDATE DATA
     public function update($id)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $data = [
-            'nama_barang'     => $_POST['nama_barang'],
-            'deskripsi' => $_POST['deskripsi'],
-            'harga'    => $_POST['harga'],
-            'stok'     => $_POST['stok']
-=======
-        // Validasi harga
-        $harga = $_POST['harga'];
-        if (!is_numeric($harga) || $harga < 0) {
-=======
         // Sanitasi & validasi harga
         $rawHarga = isset($_POST['harga']) ? $_POST['harga'] : '';
         $hargaClean = preg_replace('/[^0-9.]/', '', $rawHarga);
@@ -140,7 +109,6 @@ class BarangController extends Controller
         }
         if ($hargaClean === '') $hargaClean = '0';
         if (!is_numeric($hargaClean) || $hargaClean < 0) {
->>>>>>> 6b91432 (update: perbaikan kecil)
             die("Error: Harga harus berupa angka positif.");
         }
 
@@ -161,14 +129,8 @@ class BarangController extends Controller
         $data = [
             'nama_barang'     => $_POST['nama_barang'],
             'deskripsi' => $deskripsi,
-<<<<<<< HEAD
-            'harga'    => (float)str_replace([',',' '], ['', ''], $harga),
-            'stok'     => (int)$stok
->>>>>>> 994a0ee (First commit)
-=======
             'harga'    => $hargaClean,
             'stok'     => (int)$stokClean
->>>>>>> 6b91432 (update: perbaikan kecil)
         ];
 
         $file = $_FILES['thumbnail'];

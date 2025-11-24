@@ -108,11 +108,6 @@ class Barang
             return null;
         }
 
-<<<<<<< HEAD
-        // Validasi tipe file
-        if (!in_array($file['type'], ALLOWED_TYPES)) {
-            die("Error: File harus berupa PNG atau JPG.");
-=======
         // Validasi tipe file - hanya JPG, JPEG, PNG
         $allowed_types = ['image/jpeg', 'image/png', 'image/jpg'];
         if (!in_array($file['type'], $allowed_types)) {
@@ -124,26 +119,17 @@ class Barang
         $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
         if (!in_array($ext, $allowed_ext)) {
             die("Error: Ekstensi file harus JPG, JPEG, atau PNG saja.");
->>>>>>> 994a0ee (First commit)
         }
 
         // Validasi ukuran
         if ($file['size'] > MAX_UPLOAD_SIZE) {
-<<<<<<< HEAD
-            die("Error: Ukuran file terlalu besar.");
-=======
             die("Error: Ukuran file terlalu besar (maksimal 2 MB).");
->>>>>>> 994a0ee (First commit)
         }
 
         // Tentukan nama file
         $filename = $file['name'];
 
         if (RENAME_FILE_ON_UPLOAD) {
-<<<<<<< HEAD
-            $ext = pathinfo($filename, PATHINFO_EXTENSION);
-=======
->>>>>>> 994a0ee (First commit)
             $filename = time() . "_" . uniqid() . "." . $ext;
         }
 

@@ -27,8 +27,6 @@
         </div>
     </div>
 
-
-
     <!-- Info Section -->
     <div class="alert alert-info mt-4" role="alert">
         <strong>ℹ️ Informasi:</strong> Sistem ini memudahkan Anda dalam mengelola inventaris barang. Setiap barang dapat dilengkapi dengan gambar, deskripsi, harga, dan informasi stok.

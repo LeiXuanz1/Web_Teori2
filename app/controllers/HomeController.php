@@ -4,11 +4,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
-        $this->view("home/index");
-    }
-}
-=======
         // Load model
         $barangModel = $this->model('barang');
 
@@ -36,4 +31,3 @@ class HomeController extends Controller
         $this->view("home/index", $data);
     }
 }
->>>>>>> 994a0ee (First commit)
