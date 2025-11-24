@@ -18,7 +18,7 @@
         <div class="mb-3">
             <label>Harga</label>
             <!-- Accept integer or decimal with up to 2 decimals (e.g. 3000 or 3000.00) -->
-            <input type="text" name="harga" class="form-control" placeholder="Masukkan harga" pattern="[0-9]+(\.[0-9]{1,2})?" title="Hanya angka, boleh desimal dengan maksimal 2 tempat (contoh: 3000 atau 3000.00)" value="<?= $barang['harga']; ?>" required>
+            <input type="text" name="harga" class="form-control" placeholder="Masukkan harga" pattern="[0-9]+(\.[0-9]{1,2})?" title="Hanya angka dan tidak minus" value="<?= $barang['harga']; ?>" required>
         </div>
 
         <div class="mb-3">
@@ -46,6 +46,6 @@
         <a href="<?= BASE_URL ?>/barang" class="btn btn-secondary">Kembali</a>
 
     </form>
-</div>
+    </div>
 
-<script src="<?= BASE_URL ?>/assets/form-input-filter.js"></script>
+    <script src="<?= BASE_URL ?>/assets/form-input-filter.js"></script>

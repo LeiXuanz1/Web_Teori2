@@ -25,7 +25,7 @@ class Barang
         $keyword = "%$keyword%";
         $stmt = $this->db->prepare("
             SELECT * FROM barang 
-            WHERE nama_barang LIKE ? OR deskripsi LIKE ?
+            WHERE nama_barang LIKE ?
             ORDER BY id DESC
         ");
         $stmt->execute([$keyword, $keyword]);

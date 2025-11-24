@@ -38,12 +38,10 @@
             visibleRows = allRows.slice();
         } else {
             visibleRows = allRows.filter(r => {
-                // check name and description cells
+                // only check the Nama Barang column (td index 1)
                 const nameCell = r.querySelectorAll('td')[1];
-                const descCell = r.querySelectorAll('td')[2];
                 const nameText = nameCell ? nameCell.textContent.trim().toLowerCase() : '';
-                const descText = descCell ? descCell.textContent.trim().toLowerCase() : '';
-                return nameText.indexOf(term) !== -1 || descText.indexOf(term) !== -1;
+                return nameText.indexOf(term) !== -1;
             });
         }
         currentPage = 1;
